@@ -42,3 +42,55 @@
   font-size: 1rem;
   color: #ef4444;  /* red-500 */
 }
+
+/* styles.css or Tailwind layer */
+@keyframes float-up {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-150px);
+  }
+}
+
+.heart {
+  position: absolute;
+  bottom: 0;
+  font-size: 24px;
+  animation: float-up 2s linear;
+}
+
+/* 1) Keyframes stay the same */
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* 2) A single .shiny-text rule that covers all browsers */
+.shiny-text {
+  /* gradient */
+  background: linear-gradient(
+    90deg,
+    #f87171 0%,
+    #dc2626 50%,
+    #f87171 100%
+  );
+  background-size: 200% auto;
+  
+  /* clip to text — both prefixes and unprefixed */
+  -webkit-background-clip: text;
+  background-clip: text;
+  
+  /* make the text itself transparent */
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  
+  /* inline-block ensures clipping works reliably */
+  display: inline-block;
+  
+  /* animate the gradient pan */
+  animation: shine 2.5s linear infinite;
+}
